@@ -54,7 +54,7 @@ div.wrap {
 }
 
 div.list {
-    width: 65%;
+    width: 90%;
     font-size: 30px;
     font-family: 'Indie Flower', cursive;
 }
@@ -72,9 +72,5 @@ div.forms {
 @media (orientation: portrait) and (max-width: 360px) {
     h1 {
         font-size: 46px;
-    }
-
-    div.list {
-        width: 90%;
     }
 }

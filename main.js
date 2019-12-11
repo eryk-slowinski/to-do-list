@@ -8,9 +8,8 @@ const divCounter = document.querySelector('.counter');
 
 // Funkcja dodająca zadania do listy i usuwająca je
 const addTask = (e) => {
-    // Powstrzymanie strony przed przeładowaniem po wciśnięciu button (domyślnie button kiedy jest w form powoduje reload)
     e.preventDefault();
-    // Stworzenie elementów li i p
+    // Stworzenie elementów li i p (element p posłuży do usuwania zadań z listy)
     const addLi = document.createElement('li');
     const addX = document.createElement('p');
     // Dodanie x formie indeksu górnego, ma to symulować znaczek zamknięcia/usunięcia
@@ -20,7 +19,6 @@ const addTask = (e) => {
     // Warunek sprawdza czy w polu input coś się znajduje, jeśli to tak to dodaje w jednej linii element li z wpisanym przez użytkownika zadaniem i element p który pełni funkcję usuwania zadania
     if (inputAdd.value) tasksList.appendChild(addLi).appendChild(addX);
     allTasks = [...document.querySelectorAll('li')];
-    // Pobranie wszystkich elementów p i przypisanie ich do zmiennej
     const deleteTaskChars = document.querySelectorAll('p');
     // Poniższa funkcja iteruje po wszystkich elementach p i na tym który jest kliknięty, usuwa jego rodzica, co powoduje usunięcie zadania z listy (razem z elementem p).
     deleteTaskChars.forEach(index => index.addEventListener('click', (e) => {
@@ -30,19 +28,21 @@ const addTask = (e) => {
     counter();
 }
 
+// Funkcja odpowiadająca za wyszukiwanie zadań na liście
 const searchInList = (e) => {
     e.preventDefault();
     // Pobranie wartości z pola input do zmiennej i zamiana jej na małe znaki
     const search = inputSearch.value.toLowerCase();
     // Utworzenie tablicy z listy zadań celem zastosowania metody 'filter'
     let liList = [...document.querySelectorAll('li')];
-    // Metoda przeszukuje tablicę za zadaniami poszukując wartości z pola input
+    // Metoda przeszukuje tablicę z zadaniami poszukując wartości z pola input
     liList = liList.filter(li => li.textContent.toLowerCase().includes(search));
     // Jeśli w liście zadań znajdzie element pasujący do wartości wpisanej przez użytkownika, pogrubi czcionkę pasującego zadania
     if (search === "") liList.forEach(li => li.style.fontWeight = "normal");
     else liList.forEach(li => li.style.fontWeight = "bold");
 }
 
+// Funkcja licząca i wyświetlająca ile mamy zadań na liście
 const counter = () => {
     let numberOfTasks = [...document.querySelectorAll('li')].length;
     if (numberOfTasks === 0) divCounter.textContent = ""
