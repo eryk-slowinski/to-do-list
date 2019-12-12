@@ -14,7 +14,7 @@ const addTask = () => {
 }
 
 tasksList.onclick = (e) => {
-    if (e.target.tagName === 'button') return;
+    if (e.target.tagName !== 'BUTTON') return;
     else e.target.parentNode.remove();
     counter();
 }
