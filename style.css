@@ -3,21 +3,23 @@ body {
     padding: 0;
     background-color: #52ACFF;
     background-image: linear-gradient(180deg, #52ACFF 25%, rgb(241, 211, 39) 100%);
+    font-family: 'Solway', serif;
 }
 
-h1 {
+div.wrap h1 {
     font-family: 'Indie Flower', cursive;
     font-size: 65px;
     text-align: center;
     color: #234099;
 }
 
-form {
+div.add,
+div.search {
     margin: 7px 25px;
     display: inline-block;
 }
 
-ul {
+ul.taskslist {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -27,25 +29,28 @@ ul {
     padding: 0;
 }
 
-li {
+ul.taskslist li {
     margin: 7px;
 }
 
-p {
-    color: red;
-    display: inline;
-}
-
-button {
+div.add button {
     background-color: cornsilk;
     margin-left: 10px;
     font-family: 'Prompt', sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     padding: 3px 5px;
     border: solid 1px black;
+    cursor: pointer;
 }
 
-div.wrap {
+li button {
+    font-size: 45px;
+    background-color: transparent;
+    color: red;
+    border: none;
+}
+
+.wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,17 +65,20 @@ div.list {
 }
 
 div.counter {
-    font-family: 'Solway', serif;
     font-size: 20px;
     text-align: center;
 }
 
-div.forms {
+div.inputs {
     text-align: center;
 }
 
+.active {
+    font-weight: bold;
+}
+
 @media (orientation: portrait) and (max-width: 360px) {
-    h1 {
+    div.wrap h1 {
         font-size: 46px;
     }
 }
