@@ -20,10 +20,10 @@ tasksList.onclick = (e) => {
 }
 
 const searchInList = (e) => {
+    [...document.querySelectorAll('ul.taskslist li')].forEach(li => li.classList.remove('active'));
     const searchValue = e.target.value.toLowerCase();
     const liList = [...document.querySelectorAll('ul.taskslist li')].filter(li => li.textContent.toLowerCase().includes(searchValue));
-    if (searchValue === "") liList.forEach(index => index.classList.remove('active'));
-    else liList.forEach(index => index.classList.add('active'));
+    if (searchValue !== "") liList.forEach(li => li.classList.add('active'));
 }
 
 const counter = () => {
