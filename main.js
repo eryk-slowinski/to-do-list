@@ -34,4 +34,7 @@ const counter = () => {
 }
 
 document.querySelector('div.add button').addEventListener('click', addTask);
+inputAdd.addEventListener('keyup', (e) => {
+    if (e.keyCode === 13) addTask();
+});
 document.querySelector('div.search input').addEventListener('input', searchInList);
